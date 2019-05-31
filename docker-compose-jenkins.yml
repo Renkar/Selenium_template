@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ui-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.cv_selen
+      args:
+        CACHEBUST: 1
+    environment:
+     - URL=${URL}
+     - URL_BACKEND=${URL_BACKEND}
+    #restart: always
+    volumes:
+     - ./allure-results:/project_name/results

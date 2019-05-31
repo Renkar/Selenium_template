@@ -1,0 +1,27 @@
+version: "3"
+volumes:
+   results:
+     driver: local
+services:
+  ui-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.cv_selen
+    #restart: always
+    environment:
+     - URL=${URL}
+     - URL=${URL_BACKESN}
+    volumes:
+     - results:/dgaming-store-ui-tests/results
+
+  test-reports-server:
+     image: "frankescobar/allure-docker-service"
+     restart: on-failure
+     environment:
+       CHECK_RESULTS_EVERY_SECONDS: 10
+     ports:
+       - 127.0.0.1:4040:4040
+       - 127.0.0.1:5050:5050
+     volumes:
+       - results:/app/allure-results
+       - ./reports:/app/allure-report
