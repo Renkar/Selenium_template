@@ -8,7 +8,6 @@ py==1.8.0
 pytest==4.3.0
 selenium==3.141.0
 six==1.12.0
-urllib3==1.24.1
 pytest-xdist==1.26.1
 requests==2.21.0
 optimize-images==1.3
