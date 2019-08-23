@@ -15,10 +15,7 @@ Before launch:
 pip install -r requirements.txt
 ```
 
-Launch:
-```
-python3 -m  pytest test/<filename>.py::<testname> --alluredir=alluredir -vv
-```
+
 
 Parallel test (default command in docker):
 ```
